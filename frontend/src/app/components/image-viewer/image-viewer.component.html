@@ -1,0 +1,8 @@
+<div class="relative w-full h-full">
+  <canvas
+    #annotationCanvas
+    class="absolute top-0 left-0 z-1 duration-1000 ease-in-out"
+    [ngStyle]="{ opacity: opacity() }"
+    (window:resize)="onResize($event)"
+  ></canvas>
+</div>

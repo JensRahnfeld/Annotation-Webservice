@@ -1,0 +1,39 @@
+<div class="h-2/3 py-2 border border-transparent rounded-lg bg-gray-100">
+  <h2 class="px-2">Bounding Boxes:</h2>
+  <ul class="h-full bg-gray-100 overflow-x-hidden overflow-y-scroll">
+    @if (loading()) {
+      <div class="flex items-center justify-center py-4">
+        <span class="pr-2">Loading...</span>
+        <mat-spinner [diameter]="32"></mat-spinner>
+      </div>
+    }
+
+    @if (error(); as error) {
+      <div class="error">
+        {{ error }}
+      </div>
+    }
+
+    @if (!loading() && !error()) {
+      @for (boundingBox of boundingBoxes(); track boundingBox.id) {
+        <li class="relative flex items-center py-2 hover:bg-gray-200 px-2">
+          <span class="truncate pr-4"
+            >(x={{ boundingBox.x | number: "1.0-0" }}, y={{
+              boundingBox.y | number: "1.0-0"
+            }}, w={{ boundingBox.w | number: "1.0-0" }}, h={{
+              boundingBox.h | number: "1.0-0"
+            }})</span
+          >
+          <div class="absolute right-0 flex items-center space-x-2">
+            <button
+              mat-icon-button
+              (click)="stateService.deleteBoundingBox(boundingBox.id)"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </li>
+      }
+    }
+  </ul>
+</div>

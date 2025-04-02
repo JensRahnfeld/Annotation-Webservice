@@ -1,0 +1,16 @@
+<div>
+  @if (stateService.loadingFileNames()) {
+    <div
+      class="absolute top-0 left-0 h-screen w-screen flex items-center justify-center bg-gray-200 opacity-50 z-10"
+    >
+      <span class="text-4xl pr-2">Loading...</span>
+      <mat-spinner [diameter]="48"></mat-spinner>
+    </div>
+  }
+  <main class="h-screen w-screen px-1 py-1 md:px-4 md:py-4 lg:px-8 lg:py-8">
+    <div class="flex w-full h-full">
+      <app-nav-bar class="w-1/4"></app-nav-bar>
+      <app-image-viewer class="px-4 w-2/4"></app-image-viewer>
+    </div>
+  </main>
+</div>

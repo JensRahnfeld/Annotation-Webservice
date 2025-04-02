@@ -1,0 +1,18 @@
+<div class="h-full w-full">
+  <form>
+    <mat-form-field class="w-full">
+      <mat-label>Annotating Image</mat-label>
+      <mat-select
+        (selectionChange)="stateService.setSelectedFileName($event.value)"
+        name="filename"
+      >
+        @for (filename of filenames(); track filename) {
+          <mat-option [value]="filename">{{ filename }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <app-bounding-box-list
+    [filename]="stateService.selectedFileName()"
+  ></app-bounding-box-list>
+</div>
