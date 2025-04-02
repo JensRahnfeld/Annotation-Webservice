@@ -7,7 +7,7 @@
 3. cd into the backend: `cd backend`
 4. Run the app: `uv run fastapi dev main.py`
 
-# Or directly with pip (not recommended)
+### Or directly with pip (not recommended)
 
 1. cd into the backend `cd backend`
 2. `pip install .`
